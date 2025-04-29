@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>kolikonheitto x 1000</h2>
+    <button onclick="kolikonHeitto()">heitä 1000 kertaa kolikkoa</button>
+    <p id="kolikonheitto1000"></p>
+    <br>
+    <h2>Kuinka monta 500-500 tulosta tuhannesta</h2>
+    <button onclick="kokeile1000kertaa()">kokeile 1000 kertaa </button>
+    <p id="tuhatYritysta"></p>
+</body>
+<script>
+    function kolikonHeitto() {
+        var kruunia = 0
+        var klaavoja = 0
+
+        for (var i = 0; i < 1000; i++) {
+            var luku = Math.random()
+            if( luku < 0.5 ) {
+                kruunia++
+            } else {
+                klaavoja++
+            }
+        }
+
+        var tuloskentta = document.getElementById("kolikonheitto1000")
+        tuloskentta.innerHTML = "kruunia " + kruunia  + " klaavoja: " + klaavoja
+    }
+
+    function kokeile1000kertaa() {
+        var tasatuloksia = 0
+        for(var i = 0; i < 1000; i++) {
+            var kruunia = 0
+            for(var j = 0; j < 1000; j++) {
+                if (Math.random() < 0.5) {
+                    kruunia++
+                }
+            }
+
+            if (kruunia == 500){
+                tasatuloksia++
+            }
+        }
+
+        
+
+        var tuloskentta = document.getElementById("tuhatYritysta")
+        tuloskentta.innerHTML = tasatuloksia
+    }
+    
+</script>
+</html>
